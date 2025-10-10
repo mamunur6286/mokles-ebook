@@ -1,0 +1,13 @@
+{
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "categories": "Categories",
+      "sub_category": "Sub Category",
+      "content_one": "Content One",
+      "content_two": "Content Two",
+      "content_three": "Content Three"
+    },
+    "shop": {
+        "kurigram_shop": "EARNING APP"
+    }
+}
