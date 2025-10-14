@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Author;
+use App\Models\Category;
 use App\Models\User;
 use Exception;
+use Illuminate\Container\Attributes\Auth;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -45,6 +48,26 @@ class PageController extends Controller
         try {
 
             return view('terms_conditions');
+
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', app()->isProduction() ? 'Internal Server Error' : $e->getMessage());
+        }
+    }
+    public function authors(Request $request)
+    {
+        try {
+            $authors = Author::query()->withCount('books')->get();
+            return view('authors', compact('authors'));
+
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', app()->isProduction() ? 'Internal Server Error' : $e->getMessage());
+        }
+    }
+    public function categories(Request $request)
+    {
+        try {
+            $categories = Category::query()->withCount('books')->get();
+            return view('categories', compact('categories'));
 
         } catch (Exception $e) {
             return redirect()->back()->with('error', app()->isProduction() ? 'Internal Server Error' : $e->getMessage());

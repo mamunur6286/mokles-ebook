@@ -18,6 +18,8 @@ Route::get('admin/{any}', function () {
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/books', [BookController::class, 'index']);
+Route::get('/authors', [PageController::class, 'authors']);
+Route::get('/categories', [PageController::class, 'categories']);
 Route::get('/books/details/{book}', [BookController::class, 'show']);
 Route::get('/books/readers/{book}', [BookController::class, 'show']);
 Route::get('/about', [PageController::class, 'about']);

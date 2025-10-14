@@ -14,9 +14,9 @@ class BookController extends Controller
     public function index(Request $request)
     {
         try {
-            $books = Book::where('status', ACTIVE)->get();
+            $books = Book::where('status', ACTIVE)->paginate(24);
 
-            return view('books');
+            return view('books', ['books' => $books]);
 
         } catch (Exception $e) {
             return redirect()->back()->with('error', app()->isProduction() ? 'Internal Server Error' : $e->getMessage());

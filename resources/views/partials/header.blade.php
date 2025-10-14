@@ -7,12 +7,11 @@
 
         <!-- Menu -->
         <nav class="flex flex-wrap justify-center md:justify-start space-x-4 mb-2 md:mb-0 text-sm">
-          <a href="#" class="hover:underline">সব বই</a>
-          <a href="#" class="hover:underline">লেখক</a>
-          <a href="#" class="hover:underline">সিরিজ</a>
-          <a href="#" class="hover:underline">বইয়ের ধরন</a>
-          <a href="#" class="hover:underline">ডিকশনারি</a>
-          <a href="#" class="hover:underline">কৌতুক</a>
+          <a href="{{ url('/') }}" class="hover:underline">হোম</a>
+          <a href="{{ url('/books') }}" class="hover:underline">সব বই</a>
+          <a href="{{ url('/authors') }}" class="hover:underline">লেখক</a>
+          <a href="{{ url('/categories') }}" class="hover:underline">বইয়ের ধরন</a>
+          <a href="{{ url('/series') }}" class="hover:underline">সিরিজ</a>
         </nav>
 
         <!-- Account / Login -->

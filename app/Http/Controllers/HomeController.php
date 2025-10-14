@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Book;
+use App\Models\Category;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
@@ -15,10 +17,11 @@ class HomeController extends Controller
         try {
 
             $data =[
-                'total_users' => User::query()->where('role_id', 2)->count(),
+                'books' => Book::query()->orderBy('id', 'desc')->limit(24)->get(),
+                'categories' => Category::query()->orderBy('id', 'desc')->get(),
             ];
 
-            return view('home', ['data' => $data]);
+            return view('home',  $data);
 
         } catch (Exception $e) {
             return response()->json([
