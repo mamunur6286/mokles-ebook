@@ -22,167 +22,71 @@ const routes = [
         component: () => import('@/views/Dashboard.vue'),
         meta: { requiresAuth: true }
       },
-
-      /**
-       * Salon Management
-       */
       {
-        path: 'salon-management',
-        redirect: 'salon-management/salon-requests',
-        name: 'SalonManagement',
-        component: { render(c) { return c('router-view') } },
-        children: [
-          {
-            path: 'salon-requests',
-            name: 'SalonRequests',
-            component: () => import('@/views/salon-management/salon-requests/Requests.vue'),
-            meta: { requiresAuth: true }
-          },
-          {
-            path: 'salon-list',
-            name: 'SalonList',
-            component: () => import('@/views/salon-management/salon-requests/List.vue'),
-            meta: { requiresAuth: true }
-          },
-          {
-            path: 'salon-seats',
-            name: 'SalonSeats',
-            component: () => import('@/views/salon-management/sit/List.vue'),
-            meta: { requiresAuth: true }
-          },
-          {
-            path: 'salon-seats/create',
-            name: 'SalonSeatsCreate',
-            component: () => import('@/views/salon-management/sit/Form.vue'),
-            meta: { requiresAuth: true }
-          }
-        ]
+        path: 'authors',
+        name: 'Authors',
+        component: () => import('@/views/settings/author/List.vue'),
+        meta: { requiresAuth: true }
       },
-
-      /**
-       * Customer Management
-       */
       {
-        path: 'customer-management',
-        redirect: 'customer-management/customer-list',
-        name: 'CustomerManagement',
-        component: { render(c) { return c('router-view') } },
-        children: [
-          {
-            path: 'customer-list',
-            name: 'CustomerList',
-            component: () => import('@/views/customer-management/List.vue'),
-            meta: { requiresAuth: true }
-          },
-          {
-            path: 'customer-requests',
-            name: 'CustomerRequests',
-            component: () => import('@/views/customer-management/Requests.vue'),
-            meta: { requiresAuth: true }
-          }
-        ]
+        path: 'authors/create',
+        name: 'AuthorsCreate',
+        component: () => import('@/views/settings/author/Form.vue'),
+        meta: { requiresAuth: true }
       },
-
-      /**
-       * Service Management
-       */
       {
-        path: 'service-management',
-        redirect: 'service-management/service-requests',
-        name: 'ServiceManagement',
-        component: { render(c) { return c('router-view') } },
-        children: [
-          {
-            path: 'service-requests',
-            name: 'ServiceRequests',
-            component: () => import('@/views/service-management/Requests.vue'),
-            meta: { requiresAuth: true }
-          },
-          {
-            path: 'approve-services',
-            name: 'ApproveServices',
-            component: () => import('@/views/service-management/Approve.vue'),
-            meta: { requiresAuth: true }
-          },
-          {
-            path: 'cancel-services',
-            name: 'CancelServices',
-            component: () => import('@/views/service-management/Reject.vue'),
-            meta: { requiresAuth: true }
-          }
-        ]
+        path: 'categories',
+        name: 'Categories',
+        component: () => import('@/views/settings/category/List.vue'),
+        meta: { requiresAuth: true }
       },
-
-      /**
-       * System Settings
-       */
       {
-        path: 'system-settings',
-        redirect: 'system-settings/general-setting',
-        name: 'SystemSettings',
-        component: { render(c) { return c('router-view') } },
-        children: [
-          {
-            path: 'notification-setting',
-            name: 'NotificationSetting',
-            component: () => import('@/views/settings/NotificationSetting.vue'),
-            meta: { requiresAuth: true }
-          },
-          {
-            path: 'general-setting',
-            name: 'GeneralSetting',
-            component: () => import('@/views/settings/GeneralSetting.vue'),
-            meta: { requiresAuth: true }
-          },
-          {
-            path: 'services',
-            name: 'SystemServices',
-            component: () => import('@/views/settings/service/List.vue'),
-            meta: { requiresAuth: true }
-          },
-          {
-            path: 'services/create',
-            name: 'CreateSystemService',
-            component: () => import('@/views/settings/service/Form.vue'),
-            meta: { requiresAuth: true }
-          },
-          {
-            path: 'districts',
-            name: 'ListDistricts',
-            component: () => import('@/views/settings/district/List.vue'),
-            meta: { requiresAuth: true }
-          },
-          {
-            path: 'districts/create',
-            name: 'CreateDistrict',
-            component: () => import('@/views/settings/district/Form.vue'),
-            meta: { requiresAuth: true }
-          },
-          {
-            path: 'thanas',
-            name: 'ListThanas',
-            component: () => import('@/views/settings/thana/List.vue'),
-            meta: { requiresAuth: true }
-          },
-          {
-            path: 'thanas/create',
-            name: 'CreateThana',
-            component: () => import('@/views/settings/thana/Form.vue'),
-            meta: { requiresAuth: true }
-          },
-          {
-            path: 'areas',
-            name: 'ListAreas',
-            component: () => import('@/views/settings/area/List.vue'),
-            meta: { requiresAuth: true }
-          },
-          {
-            path: 'areas/create',
-            name: 'CreateArea',
-            component: () => import('@/views/settings/area/Form.vue'),
-            meta: { requiresAuth: true }
-          }
-        ]
+        path: 'categories/create',
+        name: 'CategoriesCreate',
+        component: () => import('@/views/settings/category/Form.vue'),
+        meta: { requiresAuth: true }
+      },
+      {
+        path: 'lessons',
+        name: 'Lessons',
+        component: () => import('@/views/settings/lesson/List.vue'),
+        meta: { requiresAuth: true }
+      },
+      {
+        path: 'lessons/create',
+        name: 'LessonsCreate',
+        component: () => import('@/views/settings/lesson/Form.vue'),
+        meta: { requiresAuth: true }
+      },
+      {
+        path: 'series',
+        name: 'Series',
+        component: () => import('@/views/settings/series/List.vue'),
+        meta: { requiresAuth: true }
+      },
+      {
+        path: 'series/create',
+        name: 'SeriesCreate',
+        component: () => import('@/views/settings/series/Form.vue'),
+        meta: { requiresAuth: true }
+      },
+      {
+        path: 'books',
+        name: 'Books',
+        component: () => import('@/views/book/List.vue'),
+        meta: { requiresAuth: true }
+      },
+      {
+        path: 'books/create',
+        name: 'BooksCreate',
+        component: () => import('@/views/book/Form.vue'),
+        meta: { requiresAuth: true }
+      },
+      {
+        path: 'settings',
+        name: 'Settings',
+        component: () => import('@/views/settings/GeneralSetting.vue'),
+        meta: { requiresAuth: true }
       }
     ]
   },

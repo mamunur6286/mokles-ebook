@@ -6,7 +6,7 @@
           <li class="breadcrumb-item">
             <router-link to="/"><i class="ri-home-8-line"></i></router-link>
           </li>
-          <li class="breadcrumb-item"><router-link to="../">Area</router-link></li>
+          <li class="breadcrumb-item"><router-link to="../">Author</router-link></li>
           <li class="breadcrumb-item active">{{ editId ? 'Update' : 'Create' }}</li>
         </ol>
       </nav>
@@ -15,10 +15,10 @@
         <CCardHeader>
           <div class="row">
             <div class="col-md-6">
-              <p class="mt-1 mb-0"><strong>Area {{ editId ? 'Update' : 'Create' }}</strong></p>
+              <p class="mt-1 mb-0"><strong>Author {{ editId ? 'Update' : 'Create' }}</strong></p>
             </div>
             <div class="col-md-6 text-right">
-              <router-link class="btn btn-sm btn-primary" to="/areas"><i class="ri-arrow-left-circle-line"></i> Back</router-link>
+              <router-link class="btn btn-sm btn-primary" to="/authors"><i class="ri-arrow-left-circle-line"></i> Back</router-link>
             </div>
           </div>
         </CCardHeader>
@@ -28,14 +28,7 @@
             <b-form @submit.prevent="submitForm">
               <div class="row">
                 <div class="col-md-4">
-                  <Select v-model="formData.district_id" :input="{ name: 'district_id', label: 'District', options: districtList, required: true, errors }" />
-                </div>
-                <div class="col-md-4">
-                  <Select v-model="formData.thana_id" :input="{ name: 'thana_id', label: 'Thana', options: thanaList, required: true, errors }" />
-                </div>
-
-                <div class="col-md-4">
-                  <Input v-model="formData.name" :input="{ type: 'text', name: 'name', label: 'Area Name', required: true, errors }" />
+                  <Input v-model="formData.name" :input="{ type: 'text', name: 'name', label: 'Author Name', required: true, errors }" />
                 </div>
                 <div class="col-md-12 text-center mt-2 mb-4">
                   <b-button class="mt-btn" size="sm" type="submit" variant="primary">
@@ -91,11 +84,11 @@ export default {
       this.thanaList = this.$store.state.commonObj.thanaList.filter(thana => thana.district_id === districtId);
     },
     async getItemById (id) {
-      const item = await RestApi.getData(baseUrl, `/areas/${id}/edit`);
+      const item = await RestApi.getData(baseUrl, `/authors/${id}/edit`);
       return item.data;
     },
     submitForm () {
-      this.createUpdate('areas/store', 'areas/update', '/system-settings/areas');
+      this.createUpdate('authors/store', 'authors/update', '/authors');
     },
     refresh () {
       location.reload();

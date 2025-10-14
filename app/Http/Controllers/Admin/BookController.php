@@ -23,7 +23,7 @@ class BookController extends Controller
 
             $name = $request->get('name');
 
-            $models = Book::query()
+            $models = Book::query()->with(['author', 'category', 'series'])
                 ->when($name, function (Builder $query) use ($name) {
                     return $query->where('name', 'LIKE', '%'.$name.'%');
                 })
@@ -51,7 +51,9 @@ class BookController extends Controller
     {
         try {
 
-            Book::create($request->fields());
+            $input = $request->fields();
+            $input['book_image'] = fileUpload('book_image');
+            Book::create($input);
 
             return response()->json([
                 'success' => true,
@@ -77,6 +79,8 @@ class BookController extends Controller
     public function edit(Book $book)
     {
         try {
+            $book->load(['author', 'category', 'series']);
+
             return response()->json([
                 'success' => true,
                 'message' => 'Data get successfully.',
@@ -102,7 +106,9 @@ class BookController extends Controller
     {
          try {
 
-            $book->update($request->fields());
+            $input = $request->fields();
+            $input['book_image'] = fileUpload('book_image') ?: $book->book_image;
+            $book->update($input);
 
 
             return response()->json([

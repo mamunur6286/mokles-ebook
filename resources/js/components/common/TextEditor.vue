@@ -10,7 +10,6 @@
         <vue-editor
             :type="input.type"
             :id="input.name"
-            v-model="value"
             v-bind="$attrs"
             v-on="$listeners"
             :name="input.name"

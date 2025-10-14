@@ -65,6 +65,42 @@ export default {
             message: 'Something went wrong'
         })
       }
-    }
+    },
+    async createUpdateWithFile(createUrl = '', updateUrl = '', redirect = '../') {
+        let result = null
+        this.dispatchLoad(true)
+
+        const formData = new FormData()
+
+        Object.keys(this.formData).forEach(key => {
+          const value = this.formData[key]
+
+          if (value instanceof File || value instanceof Blob) {
+            formData.append(key, value, value.name)
+          } 
+          else if (value !== null && value !== undefined) {
+            formData.append(key, value)
+          }
+        })
+
+        if (this.editId || this.id) {
+          formData.append('_method', 'PUT')
+          const id = this.editId ? this.editId : this.id
+          result = await RestApi.postData(baseUrl, `${updateUrl}/${id}`, formData)
+        } else {
+          result = await RestApi.postData(baseUrl, createUrl, formData)
+        }
+
+        this.dispatchLoad(false)
+
+        iziToast.success({
+          title: 'Success',
+          message: result.message
+        })
+
+        if (result.success) {
+          this.$router.push({ path: redirect })
+        }
+      }
   }
 }

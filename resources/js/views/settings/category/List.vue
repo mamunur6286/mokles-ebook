@@ -38,10 +38,7 @@
                             <template v-slot:cell(index)="data">
                                 {{ (data.index +1 + pagination.slOffset) }}
                             </template>
-
-                            <template v-slot:cell(salon_name)="data">
-                                {{ data.item.salon.salon_name }}
-                            </template>
+                           
                             <template v-slot:cell(status)="data">
                                 <span class="badge badge-success" v-if="data.item.status == 1">Active</span>
                                 <span class="badge badge-warning" v-else>Inactive</span>
@@ -49,7 +46,7 @@
                             <template v-slot:cell(action)="data">
                                 <b-button v-if="data.item.status == 1"  title="Active/Inactive" class="ml-2 btn btn-danger btn-sm" @click="changeStatus(data.item, 0)"> <i class="ri-close-circle-line"></i> </b-button>
                                 <b-button v-else  title="Active/Inactive" class="ml-2 btn btn-success btn-sm" @click="changeStatus(data.item, 1)"> <i class="ri-check-line"></i> </b-button>
-                                <b-button title="Active/Inactive" class="ml-2 btn btn-primary btn-sm" @click="editRouter(data.item, 'services/create')"> <i class="ri-edit-line"></i> </b-button>
+                                <b-button title="Active/Inactive" class="ml-2 btn btn-primary btn-sm" @click="editRouter(data.item, 'categories/create')"> <i class="ri-edit-line"></i> </b-button>
                             </template>
                         </b-table>
                     </div>
@@ -81,7 +78,7 @@ export default {
         isFilter: false,
         search: {
             name: '',
-            salon_id: null
+            district_id: null
         },
         pagination: {
             perPage: 10,
@@ -95,20 +92,14 @@ export default {
         fields () {
             const labels = [
                 { label: 'Sl No', class: 'text-center' },
-                { label: 'Salon Name', class: 'text-center' },
-                { label: 'Service Name', class: 'text-center' },
-                { label: 'Price', class: 'text-center' },
-                { label: 'Duration', class: 'text-center' },
+                { label: 'Name', class: 'text-center' },
                 { label: 'Status', class: 'text-center' },
                 { label: 'Action', class: 'text-center' }
             ]
             let keys = []
             keys = [
             { key: 'id' },
-            { key: 'salon_name' },
             { key: 'name' },
-            { key: 'price' },
-            { key: 'duration' },
             { key: 'status' },
             { key: 'action' }
             ]
@@ -125,8 +116,8 @@ export default {
       }
     },
     methods: {
-        toggleStatus (item, service) {
-            RestApi.putData(baseUrl, `/services/status/${item.id}/`, { ...item, status: service }).then(response => {
+        toggleStatus (item, status) {
+            RestApi.putData(baseUrl, `/categories/status/${item.id}/`, { ...item, status: status }).then(response => {
                 this.$store.dispatch('mutedLoad', { listReload: true })
                 iziToast.success({
                     title: 'Success',
@@ -137,7 +128,7 @@ export default {
         loadData () {
             const params = Object.assign({}, this.search, { page: this.pagination.currentPage, per_page: this.pagination.perPage })
             this.$store.dispatch('mutedLoad', { loading: true})
-            RestApi.getData(baseUrl, 'services', params).then(response => {
+            RestApi.getData(baseUrl, 'categories', params).then(response => {
                 if (response.success) {
                     this.$store.dispatch('setList', response.data.data)
                     this.paginationData(response.data)

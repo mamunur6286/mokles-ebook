@@ -101,7 +101,7 @@ export default {
     },
     submitForm() {
       // You can handle the array of settings in your API
-      this.createUpdate('settings/store', 'settings/update', '/system-settings/general-setting');
+      this.createUpdate('settings/store', 'settings/update', '/settings');
     },
     refresh() {
       location.reload();

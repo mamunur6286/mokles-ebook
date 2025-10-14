@@ -6,7 +6,7 @@
           <li class="breadcrumb-item">
             <router-link to="/"><i class="ri-home-8-line"></i></router-link>
           </li>
-          <li class="breadcrumb-item"><router-link to="../">Thana</router-link></li>
+          <li class="breadcrumb-item"><router-link to="../">Ads</router-link></li>
           <li class="breadcrumb-item active">{{ editId ? 'Update' : 'Create' }}</li>
         </ol>
       </nav>
@@ -15,10 +15,10 @@
         <CCardHeader>
           <div class="row">
             <div class="col-md-6">
-              <p class="mt-1 mb-0"><strong>Thana {{ editId ? 'Update' : 'Create' }}</strong></p>
+              <p class="mt-1 mb-0"><strong>Ads {{ editId ? 'Update' : 'Create' }}</strong></p>
             </div>
             <div class="col-md-6 text-right">
-              <router-link class="btn btn-sm btn-primary" to="/thanas"><i class="ri-arrow-left-circle-line"></i> Back</router-link>
+              <router-link class="btn btn-sm btn-primary" to="/lessons"><i class="ri-arrow-left-circle-line"></i> Back</router-link>
             </div>
           </div>
         </CCardHeader>
@@ -27,13 +27,21 @@
           <b-overlay :show="loading">
             <b-form @submit.prevent="submitForm">
               <div class="row">
-                <div class="col-md-4">
-                  <Select v-model="formData.district_id" :input="{ name: 'district_id', label: 'District', options: districtList, required: true, errors }" />
+                <div class="col-md-6">
+                  <Select v-model="formData.book_id" :input="{ name: 'book_id', label: 'Book', options: bookList, required: true, errors }" />
                 </div>
 
-                <div class="col-md-4">
-                  <Input v-model="formData.name" :input="{ type: 'text', name: 'name', label: 'Thana Name', required: true, errors }" />
+                <div class="col-md-6">
+                  <Input v-model="formData.name" :input="{ type: 'text', name: 'name', label: 'Lesson Name', required: true, errors }" />
                 </div>
+                <div class="col-md-6">
+                  <Input v-model="formData.sort_order" :input="{ type: 'text', name: 'sort_order', label: 'Sort', required: true, errors }" />
+                </div>
+
+                <div class="col-md-12">
+                  <text-editor v-model="formData.description" :input="{ type: 'text', name: 'description', label: 'Description', errors }" />
+                </div>
+
                 <div class="col-md-12 text-center mt-2 mb-4">
                   <b-button class="mt-btn" size="sm" type="submit" variant="primary">
                     <i class="ri-save-line"></i> {{ editId ? 'Update' : 'Save' }}
@@ -63,24 +71,26 @@ export default {
   data () {
     return {
       formData: {
-        district_id: null,
+        book_id: null,
         name: '',
+        sort_order: 0,
+        description: '',
       },
       errors: {}
     }
   },
   computed: {
-    districtList () {
-      return this.$store.state.commonObj.districtList;
+    bookList () {
+      return this.$store.state.commonObj.bookList;
     }
   },
   methods: {
     async getItemById (id) {
-      const item = await RestApi.getData(baseUrl, `/thanas/${id}/edit`);
+      const item = await RestApi.getData(baseUrl, `/lessons/${id}/edit`);
       return item.data;
     },
     submitForm () {
-      this.createUpdate('thanas/store', 'thanas/update', '/system-settings/thanas');
+      this.createUpdate('lessons/store', 'lessons/update', '/lessons');
     },
     refresh () {
       location.reload();

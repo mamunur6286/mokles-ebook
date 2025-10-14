@@ -24,9 +24,10 @@ class SeriesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'author_id' => ['required'],
             'name' => ['required'],
-            'banner_image'   => ['required'],
+            'author_id' => ['required'],
+            'category_id' => ['required'],
+            'banner_image'   => ['nullable'],
         ];
     }
     
@@ -38,6 +39,7 @@ class SeriesRequest extends FormRequest
     {
         return [
             'author_id'            => $this->input('author_id'),
+            'category_id'            => $this->input('category_id'),
             'name'         => $this->input('name'),
             'banner_image'         => $this->input('banner_image'),
             'status'             => $this->input('status', 1)

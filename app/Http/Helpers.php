@@ -32,3 +32,18 @@ if (!function_exists('generateUniqueID'))
         return $prefix . '-' . date('y') . '-' . str_pad($id, $length, '0', STR_PAD_LEFT);
     }
 }
+
+if (!function_exists('fileUpload'))
+{
+    function fileUpload ($fileName = 'banner_image')  
+    {
+        $filePath = '';
+        if (request()->hasFile($fileName)) {
+            $file = request()->file($fileName);
+            $fileName = time().'.'.$file->getClientOriginalExtension();
+            $file->move(public_path('uploads/series'), $fileName);
+            $filePath = 'uploads/series/'.$fileName;
+        }
+        return $filePath;
+    }
+}

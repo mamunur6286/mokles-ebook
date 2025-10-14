@@ -23,7 +23,7 @@ class SeriesController extends Controller
 
             $name = $request->get('name');
 
-            $models = Series::query()
+            $models = Series::query()->with(['author', 'category'])
                 ->when($name, function (Builder $query) use ($name) {
                     return $query->where('name', 'LIKE', '%'.$name.'%');
                 })
@@ -51,7 +51,10 @@ class SeriesController extends Controller
     {
         try {
 
-            Series::create($request->fields());
+            $input = $request->fields();
+            $input['banner_image'] = fileUpload('banner_image');
+            Series::create($input);
+
 
             return response()->json([
                 'success' => true,
@@ -102,8 +105,9 @@ class SeriesController extends Controller
     {
          try {
 
-            $series->update($request->fields());
-
+            $input = $request->fields();
+            $input['banner_image'] = fileUpload('banner_image') ?: $series->banner_image;
+            $series->update($input);
 
             return response()->json([
                 'success' => true,

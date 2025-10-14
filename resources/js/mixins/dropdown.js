@@ -26,12 +26,10 @@ export default {
         if (response.success) {
           this.$store.commit('mutateDropdown', {
             hasDropdownLoaded: true,
-            salonList: response.data.salonList,
-            sitList: response.data.sitList,
-            serviceList: response.data.serviceList,
-            districtList: response.data.districtList,
-            thanaList: response.data.thanaList,
-            areaList: response.data.areaList,
+            categoryList: response.data.categoryList,
+            authorList: response.data.authorList,
+            seriesList: response.data.seriesList,
+            bookList: response.data.bookList,
           })
         }
       })

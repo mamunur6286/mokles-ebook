@@ -35,10 +35,12 @@
                 <b-overlay :show='loading'>
                     <div class="overflow-auto">
                         <b-table thead-class="thead-color" emptyText="Data Not Found" small show-empty bordered hover :items="itemList" :fields="fields">
-                            <template v-slot:cell(index)="data">
+                            <template v-slot:cell(id)="data">
                                 {{ (data.index +1 + pagination.slOffset) }}
                             </template>
-                           
+                            <template v-slot:cell(book_name)="data">
+                                {{ data.item.book?.name }}
+                            </template>
                             <template v-slot:cell(status)="data">
                                 <span class="badge badge-success" v-if="data.item.status == 1">Active</span>
                                 <span class="badge badge-warning" v-else>Inactive</span>
@@ -46,7 +48,7 @@
                             <template v-slot:cell(action)="data">
                                 <b-button v-if="data.item.status == 1"  title="Active/Inactive" class="ml-2 btn btn-danger btn-sm" @click="changeStatus(data.item, 0)"> <i class="ri-close-circle-line"></i> </b-button>
                                 <b-button v-else  title="Active/Inactive" class="ml-2 btn btn-success btn-sm" @click="changeStatus(data.item, 1)"> <i class="ri-check-line"></i> </b-button>
-                                <b-button title="Active/Inactive" class="ml-2 btn btn-primary btn-sm" @click="editRouter(data.item, 'districts/create')"> <i class="ri-edit-line"></i> </b-button>
+                                <b-button title="Active/Inactive" class="ml-2 btn btn-primary btn-sm" @click="editRouter(data.item, 'lessons/create')"> <i class="ri-edit-line"></i> </b-button>
                             </template>
                         </b-table>
                     </div>
@@ -92,14 +94,18 @@ export default {
         fields () {
             const labels = [
                 { label: 'Sl No', class: 'text-center' },
-                { label: 'District Name', class: 'text-center' },
+                { label: 'Book Name', class: 'text-center' },
+                { label: 'Lesson Name', class: 'text-center' },
+                { label: 'Sort', class: 'text-center' },
                 { label: 'Status', class: 'text-center' },
                 { label: 'Action', class: 'text-center' }
             ]
             let keys = []
             keys = [
             { key: 'id' },
+            { key: 'book_name' },
             { key: 'name' },
+            { key: 'sort_order' },
             { key: 'status' },
             { key: 'action' }
             ]
@@ -116,8 +122,8 @@ export default {
       }
     },
     methods: {
-        toggleStatus (item, status) {
-            RestApi.putData(baseUrl, `/districts/status/${item.id}/`, { ...item, status: status }).then(response => {
+        toggleStatus (item, service) {
+            RestApi.putData(baseUrl, `/lessons/status/${item.id}/`, { ...item, status: service }).then(response => {
                 this.$store.dispatch('mutedLoad', { listReload: true })
                 iziToast.success({
                     title: 'Success',
@@ -128,7 +134,7 @@ export default {
         loadData () {
             const params = Object.assign({}, this.search, { page: this.pagination.currentPage, per_page: this.pagination.perPage })
             this.$store.dispatch('mutedLoad', { loading: true})
-            RestApi.getData(baseUrl, 'districts', params).then(response => {
+            RestApi.getData(baseUrl, 'lessons', params).then(response => {
                 if (response.success) {
                     this.$store.dispatch('setList', response.data.data)
                     this.paginationData(response.data)

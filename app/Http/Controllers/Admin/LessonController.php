@@ -23,7 +23,7 @@ class LessonController extends Controller
 
             $name = $request->get('name');
 
-            $models = Lesson::query()
+            $models = Lesson::query()->with('book')
                 ->when($name, function (Builder $query) use ($name) {
                     return $query->where('name', 'LIKE', '%'.$name.'%');
                 })
@@ -74,13 +74,13 @@ class LessonController extends Controller
      * @param mixed $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function edit(Lesson $series)
+    public function edit(Lesson $lesson)
     {
         try {
             return response()->json([
                 'success' => true,
                 'message' => 'Data get successfully.',
-                'data' => $series
+                'data' => $lesson
             ], Response::HTTP_OK);
 
         } catch (Exception $e) {
@@ -98,11 +98,11 @@ class LessonController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Lesson $series, LessonRequest $request)
+    public function update(Lesson $lesson, LessonRequest $request)
     {
          try {
 
-            $series->update($request->fields());
+            $lesson->update($request->fields());
 
 
             return response()->json([
@@ -125,12 +125,12 @@ class LessonController extends Controller
      * @param mixed $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function changeStatus(Lesson $series, Request $request)
+    public function changeStatus(Lesson $lesson, Request $request)
     {
         try {
 
-            $series->status = $request->get('status');
-            $series->save();
+            $lesson->status = $request->get('status');
+            $lesson->save();
 
             return response()->json([
                 'success' => true,

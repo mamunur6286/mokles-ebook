@@ -12,8 +12,14 @@ class Book extends Model
         'category_id',
         'series_id',
         'book_image',
+        'name',
+        'meta_data',
         'description',
         'status',
+    ];
+
+    protected $casts = [
+        'meta_data' => 'array',
     ];
 
     public function author(): BelongsTo

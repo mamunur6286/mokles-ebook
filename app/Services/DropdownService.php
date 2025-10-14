@@ -2,14 +2,10 @@
 
 namespace App\Services;
 
-use App\Models\Area;
-use App\Models\District;
-use App\Models\Salon;
-use App\Models\SalonSeat;
-use App\Models\SalonSit;
+use App\Models\Author;
+use App\Models\Book;
+use App\Models\Category;
 use App\Models\Series;
-use App\Models\Service;
-use App\Models\Thana;
 
 class DropdownService
 {
@@ -19,11 +15,15 @@ class DropdownService
     }
     public function categoryList(): array
     {
-        return Series::select('id as value', 'name as text')->get()->toArray();
+        return Category::select('id as value', 'name as text')->get()->toArray();
     }
     public function authorList(): array
     {
-        return Series::select('id as value', 'name as text')->get()->toArray();
+        return Author::select('id as value', 'name as text')->get()->toArray();
+    }
+    public function bookList(): array
+    {
+        return Book::select('id as value', 'name as text')->get()->toArray();
     }
 
 }

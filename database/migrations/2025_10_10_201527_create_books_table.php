@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('author_id')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
             $table->unsignedBigInteger('series_id')->nullable();
+            $table->string('name')->nullable();
             $table->string('book_image')->nullable();
             $table->text('description')->nullable();
             $table->boolean('status')->default(true);

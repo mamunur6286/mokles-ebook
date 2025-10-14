@@ -1,36 +1,48 @@
 <template>
-    <div>
-        <b-form-group
-            :label-cols-sm="parseInt(input?.cols || 12)"
-            :label-for="input.name"
-            >
-            <template v-slot:label>
-            <span>{{ input?.label || input.name | formatLabel }}</span> <Required v-if="input.required" />
-            </template>
-            <b-form-file
-                class="form-control-sm"
-                size="sm"
-                :type="input.type"
-                :value="$attrs.value"
-                v-bind="$attrs"
-                v-on="$listeners"
-                :id="input.name"
-                ></b-form-file>
-            </b-form-group>
-        <Error :name="input.name" :errors="input.errors" />
-    </div>
+  <div>
+    <b-form-group
+      :label-cols-sm="parseInt(input?.cols || 12)"
+      :label-for="input.name"
+    >
+      <template v-slot:label>
+        <span>{{ formatLabel(input?.label || input.name) }}</span>
+        <Required v-if="input.required" />
+      </template>
+
+      <b-form-file
+        class="form-control-sm"
+        size="sm"
+        :id="input.name"
+        :state="!input.errors?.length"
+        v-bind="$attrs"
+        v-on="$listeners"
+        @change="onFileChange"
+      ></b-form-file>
+    </b-form-group>
+
+    <Error :name="input.name" :errors="input.errors" />
+  </div>
 </template>
+
 <script>
 export default {
-  props: ['input'],
-  data () {
-      return {
-      }
+  props: {
+    input: {
+      type: Object,
+      required: true
+    }
   },
   methods: {
-    ucfirst(str) {
-        var firstLetter = str.substr(0, 1);
-        return firstLetter.toUpperCase() + str.substr(1);
+    formatLabel(str) {
+      if (!str) return ''
+      const firstLetter = str.charAt(0).toUpperCase()
+      return firstLetter + str.slice(1).replace(/_/g, ' ')
+    },
+
+    onFileChange(e) {
+      const file = e.target.files[0] || null
+      this.$emit('input', file)
+      this.input.vmodel = file
     }
   }
 }

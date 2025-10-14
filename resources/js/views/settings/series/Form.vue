@@ -6,7 +6,7 @@
           <li class="breadcrumb-item">
             <router-link to="/"><i class="ri-home-8-line"></i></router-link>
           </li>
-          <li class="breadcrumb-item"><router-link to="../">Ads</router-link></li>
+          <li class="breadcrumb-item"><router-link to="../">Series</router-link></li>
           <li class="breadcrumb-item active">{{ editId ? 'Update' : 'Create' }}</li>
         </ol>
       </nav>
@@ -15,10 +15,10 @@
         <CCardHeader>
           <div class="row">
             <div class="col-md-6">
-              <p class="mt-1 mb-0"><strong>Ads {{ editId ? 'Update' : 'Create' }}</strong></p>
+              <p class="mt-1 mb-0"><strong>Series {{ editId ? 'Update' : 'Create' }}</strong></p>
             </div>
             <div class="col-md-6 text-right">
-              <router-link class="btn btn-sm btn-primary" to="/services"><i class="ri-arrow-left-circle-line"></i> Back</router-link>
+              <router-link class="btn btn-sm btn-primary" to="/series"><i class="ri-arrow-left-circle-line"></i> Back</router-link>
             </div>
           </div>
         </CCardHeader>
@@ -28,25 +28,17 @@
             <b-form @submit.prevent="submitForm">
               <div class="row">
                 <div class="col-md-4">
-                  <Select v-model="formData.salon_id" :input="{ name: 'salon_id', label: 'Salon', options: salonList, required: true, errors }" />
+                  <Select v-model="formData.author_id" :input="{ name: 'author_id', label: 'Author', options: authorList, required: true, errors }" />
                 </div>
-
                 <div class="col-md-4">
-                  <Input v-model="formData.name" :input="{ type: 'text', name: 'name', label: 'Service Name', required: true, errors }" />
+                  <Select v-model="formData.category_id" :input="{ name: 'category_id', label: 'Category', options: categoryList, required: true, errors }" />
                 </div>
-
                 <div class="col-md-4">
-                  <Input v-model="formData.price" :input="{ type: 'number', step: '0.01', name: 'price', label: 'Price', errors }" />
+                  <Input v-model="formData.name" :input="{ type: 'text', name: 'name', label: 'Series Name', required: true, errors }" />
                 </div>
-
                 <div class="col-md-4">
-                  <Input v-model="formData.duration" :input="{ type: 'text', name: 'duration', label: 'Duration (e.g. 30 mins)', errors }" />
+                  <File v-model="formData.banner_image" :input="{ type: 'file', name: 'banner_image', label: 'Banner Image', required: true, errors, vmodel: formData.banner_image }" />
                 </div>
-
-                <div class="col-md-4">
-                  <Input v-model="formData.description" :input="{ type: 'text', name: 'description', label: 'Description', errors }" />
-                </div>
-
                 <div class="col-md-12 text-center mt-2 mb-4">
                   <b-button class="mt-btn" size="sm" type="submit" variant="primary">
                     <i class="ri-save-line"></i> {{ editId ? 'Update' : 'Save' }}
@@ -76,27 +68,30 @@ export default {
   data () {
     return {
       formData: {
-        salon_id: null,
+        author_id: '',
+        category_id: '',
         name: '',
-        price: 0,
-        duration: '',
-        description: '',
+        banner_image: [],
       },
       errors: {}
     }
   },
   computed: {
-    salonList () {
-      return this.$store.state.commonObj.salonList;
-    }
+    authorList () {
+      return this.$store.state.commonObj.authorList;
+    },
+    categoryList () {
+      return this.$store.state.commonObj.categoryList;
+    },
   },
   methods: {
+
     async getItemById (id) {
-      const item = await RestApi.getData(baseUrl, `/services/${id}/edit`);
+      const item = await RestApi.getData(baseUrl, `/series/${id}/edit`);
       return item.data;
     },
     submitForm () {
-      this.createUpdate('services/store', 'services/update', '/system-settings/services');
+      this.createUpdateWithFile('series/store', 'series/update', '/series');
     },
     refresh () {
       location.reload();

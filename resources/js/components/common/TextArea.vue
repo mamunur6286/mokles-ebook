@@ -23,7 +23,8 @@
 </template>
 <script>
 export default {
-  props: ['TextArea'],
+  name: 'TextArea',
+  props: ['input'],
   data () {
       return {
           value: ''

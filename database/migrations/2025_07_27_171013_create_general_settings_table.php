@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('key')->unique();            
             $table->text('value')->nullable();          
             $table->string('field_type')->default('input'); 
-            $table->json('meta_data')->nullable(); 
             $table->timestamps();
         });
     }

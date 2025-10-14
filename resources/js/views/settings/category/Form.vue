@@ -6,7 +6,7 @@
           <li class="breadcrumb-item">
             <router-link to="/"><i class="ri-home-8-line"></i></router-link>
           </li>
-          <li class="breadcrumb-item"><router-link to="../">District</router-link></li>
+          <li class="breadcrumb-item"><router-link to="../">Category</router-link></li>
           <li class="breadcrumb-item active">{{ editId ? 'Update' : 'Create' }}</li>
         </ol>
       </nav>
@@ -15,10 +15,10 @@
         <CCardHeader>
           <div class="row">
             <div class="col-md-6">
-              <p class="mt-1 mb-0"><strong>District {{ editId ? 'Update' : 'Create' }}</strong></p>
+              <p class="mt-1 mb-0"><strong>Category {{ editId ? 'Update' : 'Create' }}</strong></p>
             </div>
             <div class="col-md-6 text-right">
-              <router-link class="btn btn-sm btn-primary" to="/districts"><i class="ri-arrow-left-circle-line"></i> Back</router-link>
+              <router-link class="btn btn-sm btn-primary" to="/categories"><i class="ri-arrow-left-circle-line"></i> Back</router-link>
             </div>
           </div>
         </CCardHeader>
@@ -28,7 +28,7 @@
             <b-form @submit.prevent="submitForm">
               <div class="row">
                 <div class="col-md-4">
-                  <Input v-model="formData.name" :input="{ type: 'text', name: 'name', label: 'District Name', required: true, errors }" />
+                  <Input v-model="formData.name" :input="{ type: 'text', name: 'name', label: 'Category Name', required: true, errors }" />
                 </div>
                 <div class="col-md-12 text-center mt-2 mb-4">
                   <b-button class="mt-btn" size="sm" type="submit" variant="primary">
@@ -59,18 +59,36 @@ export default {
   data () {
     return {
       formData: {
+        district_id: null,
+        thana_id: null,
         name: '',
       },
+      thanaList: [],
       errors: {}
     }
   },
+  watch: {
+      'formData.district_id' : function (newVal) {
+        if (newVal) {
+          this.loadThanaList(newVal);
+        }
+      }
+  },
+  computed: {
+    districtList () {
+      return this.$store.state.commonObj.districtList;
+    }
+  },
   methods: {
+    loadThanaList (districtId) {
+      this.thanaList = this.$store.state.commonObj.thanaList.filter(thana => thana.district_id === districtId);
+    },
     async getItemById (id) {
-      const item = await RestApi.getData(baseUrl, `/districts/${id}/edit`);
+      const item = await RestApi.getData(baseUrl, `/categories/${id}/edit`);
       return item.data;
     },
     submitForm () {
-      this.createUpdate('districts/store', 'districts/update', '/system-settings/districts');
+      this.createUpdate('categories/store', 'categories/update', '/categories');
     },
     refresh () {
       location.reload();

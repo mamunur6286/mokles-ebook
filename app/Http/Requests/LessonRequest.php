@@ -36,6 +36,7 @@ class LessonRequest extends FormRequest
         return [
             'book_id'      => $this->input('book_id'),
             'name'      => $this->input('name'),
+            'sort_order'      => $this->input('sort_order'),
             'description'      => $this->input('description'),
             'status'       => $this->input('status', 1),
         ];

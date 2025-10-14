@@ -27,6 +27,7 @@ class DropDownApiController extends Controller
                 'authorList'       => $dropdown->authorList(),
                 'categoryList'         => $dropdown->categoryList(),
                 'seriesList'     => $dropdown->seriesList(),
+                'bookList'     => $dropdown->bookList(),
             ];
 
            
