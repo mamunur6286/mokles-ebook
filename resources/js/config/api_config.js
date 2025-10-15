@@ -1,6 +1,6 @@
 import axios from 'axios'
-const prod = false
-export const baseUrl = prod ? 'http://85.31.235.79:8088/api/v1/' : 'http://localhost:8000/api/v1/'
+const prod = true;
+export const baseUrl = prod ? 'http://69.62.72.119:8075/api/v1/' : 'http://localhost:8000/api/v1/'
 
 export default {
     execute(baseUrl, method, uri, data, params = {}) {
