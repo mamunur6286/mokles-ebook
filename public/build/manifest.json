@@ -1,13 +1,13 @@
 {
-  "_formMixin-Dz1weerd.js": {
-    "file": "assets/formMixin-Dz1weerd.js",
+  "_formMixin-CuKfjQ8e.js": {
+    "file": "assets/formMixin-CuKfjQ8e.js",
     "name": "formMixin",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_listMixin-DE8m5-oh.js": {
-    "file": "assets/listMixin-DE8m5-oh.js",
+  "_listMixin-D3VGw9L4.js": {
+    "file": "assets/listMixin-D3VGw9L4.js",
     "name": "listMixin",
     "imports": [
       "resources/js/app.js"
@@ -34,7 +34,7 @@
     "src": "node_modules/remixicon/fonts/remixicon.woff2"
   },
   "resources/js/app.js": {
-    "file": "assets/app-CbaWAQcg.js",
+    "file": "assets/app-BlueZ7OP.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -45,25 +45,17 @@
       "resources/js/views/pages/Register.vue",
       "resources/js/containers/TheContainer.vue",
       "resources/js/views/Dashboard.vue",
-      "resources/js/views/salon-management/salon-requests/Requests.vue",
-      "resources/js/views/salon-management/salon-requests/List.vue",
-      "resources/js/views/salon-management/sit/List.vue",
-      "resources/js/views/salon-management/sit/Form.vue",
-      "resources/js/views/customer-management/List.vue",
-      "resources/js/views/customer-management/Requests.vue",
-      "resources/js/views/service-management/Requests.vue",
-      "resources/js/views/service-management/Approve.vue",
-      "resources/js/views/service-management/Reject.vue",
-      "resources/js/views/settings/NotificationSetting.vue",
-      "resources/js/views/settings/GeneralSetting.vue",
-      "resources/js/views/settings/service/List.vue",
-      "resources/js/views/settings/service/Form.vue",
-      "resources/js/views/settings/district/List.vue",
-      "resources/js/views/settings/district/Form.vue",
-      "resources/js/views/settings/thana/List.vue",
-      "resources/js/views/settings/thana/Form.vue",
-      "resources/js/views/settings/area/List.vue",
-      "resources/js/views/settings/area/Form.vue"
+      "resources/js/views/settings/author/List.vue",
+      "resources/js/views/settings/author/Form.vue",
+      "resources/js/views/settings/category/List.vue",
+      "resources/js/views/settings/category/Form.vue",
+      "resources/js/views/settings/lesson/List.vue",
+      "resources/js/views/settings/lesson/Form.vue",
+      "resources/js/views/settings/series/List.vue",
+      "resources/js/views/settings/series/Form.vue",
+      "resources/js/views/book/List.vue",
+      "resources/js/views/book/Form.vue",
+      "resources/js/views/settings/GeneralSetting.vue"
     ],
     "css": [
       "assets/app-DNFAtFeM.css"
@@ -93,7 +85,7 @@
     "src": "resources/js/assets/images/profile.png"
   },
   "resources/js/containers/TheContainer.vue": {
-    "file": "assets/TheContainer-Bj0OznXe.js",
+    "file": "assets/TheContainer-BHUXBz23.js",
     "name": "TheContainer",
     "src": "resources/js/containers/TheContainer.vue",
     "isDynamicEntry": true,
@@ -111,7 +103,7 @@
     ]
   },
   "resources/js/views/Dashboard.vue": {
-    "file": "assets/Dashboard-BtotJzit.js",
+    "file": "assets/Dashboard-H06Pre2P.js",
     "name": "Dashboard",
     "src": "resources/js/views/Dashboard.vue",
     "isDynamicEntry": true,
@@ -119,28 +111,28 @@
       "resources/js/app.js"
     ]
   },
-  "resources/js/views/customer-management/List.vue": {
-    "file": "assets/List-Bw-_EzUr.js",
-    "name": "List",
-    "src": "resources/js/views/customer-management/List.vue",
+  "resources/js/views/book/Form.vue": {
+    "file": "assets/Form-CAhCGigv.js",
+    "name": "Form",
+    "src": "resources/js/views/book/Form.vue",
     "isDynamicEntry": true,
     "imports": [
-      "resources/js/app.js",
-      "_listMixin-DE8m5-oh.js"
+      "_formMixin-CuKfjQ8e.js",
+      "resources/js/app.js"
     ]
   },
-  "resources/js/views/customer-management/Requests.vue": {
-    "file": "assets/Requests-Dj2mddxS.js",
-    "name": "Requests",
-    "src": "resources/js/views/customer-management/Requests.vue",
+  "resources/js/views/book/List.vue": {
+    "file": "assets/List-CmhqVI4Z.js",
+    "name": "List",
+    "src": "resources/js/views/book/List.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_listMixin-DE8m5-oh.js"
+      "_listMixin-D3VGw9L4.js"
     ]
   },
   "resources/js/views/pages/Login.vue": {
-    "file": "assets/Login-CTzRoc7D.js",
+    "file": "assets/Login-BCacvqr6.js",
     "name": "Login",
     "src": "resources/js/views/pages/Login.vue",
     "isDynamicEntry": true,
@@ -149,7 +141,7 @@
     ]
   },
   "resources/js/views/pages/Page404.vue": {
-    "file": "assets/Page404-DlJOeJ7l.js",
+    "file": "assets/Page404-B6VOm_8W.js",
     "name": "Page404",
     "src": "resources/js/views/pages/Page404.vue",
     "isDynamicEntry": true,
@@ -158,7 +150,7 @@
     ]
   },
   "resources/js/views/pages/Page500.vue": {
-    "file": "assets/Page500-C2W1RUaq.js",
+    "file": "assets/Page500-DqDopcxF.js",
     "name": "Page500",
     "src": "resources/js/views/pages/Page500.vue",
     "isDynamicEntry": true,
@@ -167,7 +159,7 @@
     ]
   },
   "resources/js/views/pages/Register.vue": {
-    "file": "assets/Register-Bd5kr5va.js",
+    "file": "assets/Register-fVE3IlWH.js",
     "name": "Register",
     "src": "resources/js/views/pages/Register.vue",
     "isDynamicEntry": true,
@@ -175,174 +167,94 @@
       "resources/js/app.js"
     ]
   },
-  "resources/js/views/salon-management/salon-requests/List.vue": {
-    "file": "assets/List-Buz8AV14.js",
-    "name": "List",
-    "src": "resources/js/views/salon-management/salon-requests/List.vue",
-    "isDynamicEntry": true,
-    "imports": [
-      "resources/js/app.js",
-      "_listMixin-DE8m5-oh.js"
-    ]
-  },
-  "resources/js/views/salon-management/salon-requests/Requests.vue": {
-    "file": "assets/Requests-DLK__zJC.js",
-    "name": "Requests",
-    "src": "resources/js/views/salon-management/salon-requests/Requests.vue",
-    "isDynamicEntry": true,
-    "imports": [
-      "resources/js/app.js",
-      "_listMixin-DE8m5-oh.js"
-    ]
-  },
-  "resources/js/views/salon-management/sit/Form.vue": {
-    "file": "assets/Form-D7RhOGJ8.js",
-    "name": "Form",
-    "src": "resources/js/views/salon-management/sit/Form.vue",
-    "isDynamicEntry": true,
-    "imports": [
-      "_formMixin-Dz1weerd.js",
-      "resources/js/app.js"
-    ]
-  },
-  "resources/js/views/salon-management/sit/List.vue": {
-    "file": "assets/List-DvN7R3Yp.js",
-    "name": "List",
-    "src": "resources/js/views/salon-management/sit/List.vue",
-    "isDynamicEntry": true,
-    "imports": [
-      "resources/js/app.js",
-      "_listMixin-DE8m5-oh.js"
-    ]
-  },
-  "resources/js/views/service-management/Approve.vue": {
-    "file": "assets/Approve-DpszcUi8.js",
-    "name": "Approve",
-    "src": "resources/js/views/service-management/Approve.vue",
-    "isDynamicEntry": true,
-    "imports": [
-      "resources/js/app.js",
-      "_listMixin-DE8m5-oh.js"
-    ]
-  },
-  "resources/js/views/service-management/Reject.vue": {
-    "file": "assets/Reject-6zqgGKih.js",
-    "name": "Reject",
-    "src": "resources/js/views/service-management/Reject.vue",
-    "isDynamicEntry": true,
-    "imports": [
-      "resources/js/app.js",
-      "_listMixin-DE8m5-oh.js"
-    ]
-  },
-  "resources/js/views/service-management/Requests.vue": {
-    "file": "assets/Requests-XBDtxklS.js",
-    "name": "Requests",
-    "src": "resources/js/views/service-management/Requests.vue",
-    "isDynamicEntry": true,
-    "imports": [
-      "resources/js/app.js",
-      "_listMixin-DE8m5-oh.js"
-    ]
-  },
   "resources/js/views/settings/GeneralSetting.vue": {
-    "file": "assets/GeneralSetting-BYiFwUIs.js",
+    "file": "assets/GeneralSetting-BqHo0b_j.js",
     "name": "GeneralSetting",
     "src": "resources/js/views/settings/GeneralSetting.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_formMixin-Dz1weerd.js",
+      "_formMixin-CuKfjQ8e.js",
       "resources/js/app.js"
     ]
   },
-  "resources/js/views/settings/NotificationSetting.vue": {
-    "file": "assets/NotificationSetting-b10S9jHD.js",
-    "name": "NotificationSetting",
-    "src": "resources/js/views/settings/NotificationSetting.vue",
-    "isDynamicEntry": true,
-    "imports": [
-      "_formMixin-Dz1weerd.js",
-      "resources/js/app.js"
-    ]
-  },
-  "resources/js/views/settings/area/Form.vue": {
-    "file": "assets/Form-Co6iW2WO.js",
+  "resources/js/views/settings/author/Form.vue": {
+    "file": "assets/Form-M9lB0YX3.js",
     "name": "Form",
-    "src": "resources/js/views/settings/area/Form.vue",
+    "src": "resources/js/views/settings/author/Form.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_formMixin-Dz1weerd.js",
+      "_formMixin-CuKfjQ8e.js",
       "resources/js/app.js"
     ]
   },
-  "resources/js/views/settings/area/List.vue": {
-    "file": "assets/List-DegYocp_.js",
+  "resources/js/views/settings/author/List.vue": {
+    "file": "assets/List--imFlW6t.js",
     "name": "List",
-    "src": "resources/js/views/settings/area/List.vue",
+    "src": "resources/js/views/settings/author/List.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_listMixin-DE8m5-oh.js"
+      "_listMixin-D3VGw9L4.js"
     ]
   },
-  "resources/js/views/settings/district/Form.vue": {
-    "file": "assets/Form-CsndAdx-.js",
+  "resources/js/views/settings/category/Form.vue": {
+    "file": "assets/Form-GgTxBw_g.js",
     "name": "Form",
-    "src": "resources/js/views/settings/district/Form.vue",
+    "src": "resources/js/views/settings/category/Form.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_formMixin-Dz1weerd.js",
+      "_formMixin-CuKfjQ8e.js",
       "resources/js/app.js"
     ]
   },
-  "resources/js/views/settings/district/List.vue": {
-    "file": "assets/List-BmCkhelV.js",
+  "resources/js/views/settings/category/List.vue": {
+    "file": "assets/List-CeurUaRQ.js",
     "name": "List",
-    "src": "resources/js/views/settings/district/List.vue",
+    "src": "resources/js/views/settings/category/List.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_listMixin-DE8m5-oh.js"
+      "_listMixin-D3VGw9L4.js"
     ]
   },
-  "resources/js/views/settings/service/Form.vue": {
-    "file": "assets/Form-DyqPHBl-.js",
+  "resources/js/views/settings/lesson/Form.vue": {
+    "file": "assets/Form-CPa9uI61.js",
     "name": "Form",
-    "src": "resources/js/views/settings/service/Form.vue",
+    "src": "resources/js/views/settings/lesson/Form.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_formMixin-Dz1weerd.js",
+      "_formMixin-CuKfjQ8e.js",
       "resources/js/app.js"
     ]
   },
-  "resources/js/views/settings/service/List.vue": {
-    "file": "assets/List-Cr0dISbc.js",
+  "resources/js/views/settings/lesson/List.vue": {
+    "file": "assets/List-sKdUSaS_.js",
     "name": "List",
-    "src": "resources/js/views/settings/service/List.vue",
+    "src": "resources/js/views/settings/lesson/List.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_listMixin-DE8m5-oh.js"
+      "_listMixin-D3VGw9L4.js"
     ]
   },
-  "resources/js/views/settings/thana/Form.vue": {
-    "file": "assets/Form-BHw9Xj1a.js",
+  "resources/js/views/settings/series/Form.vue": {
+    "file": "assets/Form-DAqqJPwt.js",
     "name": "Form",
-    "src": "resources/js/views/settings/thana/Form.vue",
+    "src": "resources/js/views/settings/series/Form.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_formMixin-Dz1weerd.js",
+      "_formMixin-CuKfjQ8e.js",
       "resources/js/app.js"
     ]
   },
-  "resources/js/views/settings/thana/List.vue": {
-    "file": "assets/List-CETQ_DO3.js",
+  "resources/js/views/settings/series/List.vue": {
+    "file": "assets/List-BpVHpXDP.js",
     "name": "List",
-    "src": "resources/js/views/settings/thana/List.vue",
+    "src": "resources/js/views/settings/series/List.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_listMixin-DE8m5-oh.js"
+      "_listMixin-D3VGw9L4.js"
     ]
   }
 }
