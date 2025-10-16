@@ -1,13 +1,13 @@
 {
-  "_formMixin-CuKfjQ8e.js": {
-    "file": "assets/formMixin-CuKfjQ8e.js",
+  "_formMixin-BR49Sdmj.js": {
+    "file": "assets/formMixin-BR49Sdmj.js",
     "name": "formMixin",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_listMixin-D3VGw9L4.js": {
-    "file": "assets/listMixin-D3VGw9L4.js",
+  "_listMixin-D4_bIHHF.js": {
+    "file": "assets/listMixin-D4_bIHHF.js",
     "name": "listMixin",
     "imports": [
       "resources/js/app.js"
@@ -34,7 +34,7 @@
     "src": "node_modules/remixicon/fonts/remixicon.woff2"
   },
   "resources/js/app.js": {
-    "file": "assets/app-BlueZ7OP.js",
+    "file": "assets/app-D5WddiTV.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -85,7 +85,7 @@
     "src": "resources/js/assets/images/profile.png"
   },
   "resources/js/containers/TheContainer.vue": {
-    "file": "assets/TheContainer-BHUXBz23.js",
+    "file": "assets/TheContainer-D_v4gQL7.js",
     "name": "TheContainer",
     "src": "resources/js/containers/TheContainer.vue",
     "isDynamicEntry": true,
@@ -103,7 +103,7 @@
     ]
   },
   "resources/js/views/Dashboard.vue": {
-    "file": "assets/Dashboard-H06Pre2P.js",
+    "file": "assets/Dashboard-ANPMbljg.js",
     "name": "Dashboard",
     "src": "resources/js/views/Dashboard.vue",
     "isDynamicEntry": true,
@@ -112,27 +112,27 @@
     ]
   },
   "resources/js/views/book/Form.vue": {
-    "file": "assets/Form-CAhCGigv.js",
+    "file": "assets/Form-BnEhsLA_.js",
     "name": "Form",
     "src": "resources/js/views/book/Form.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_formMixin-CuKfjQ8e.js",
+      "_formMixin-BR49Sdmj.js",
       "resources/js/app.js"
     ]
   },
   "resources/js/views/book/List.vue": {
-    "file": "assets/List-CmhqVI4Z.js",
+    "file": "assets/List-NC1M1VVD.js",
     "name": "List",
     "src": "resources/js/views/book/List.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_listMixin-D3VGw9L4.js"
+      "_listMixin-D4_bIHHF.js"
     ]
   },
   "resources/js/views/pages/Login.vue": {
-    "file": "assets/Login-BCacvqr6.js",
+    "file": "assets/Login-DOIMLhhk.js",
     "name": "Login",
     "src": "resources/js/views/pages/Login.vue",
     "isDynamicEntry": true,
@@ -141,7 +141,7 @@
     ]
   },
   "resources/js/views/pages/Page404.vue": {
-    "file": "assets/Page404-B6VOm_8W.js",
+    "file": "assets/Page404-w3erZbg1.js",
     "name": "Page404",
     "src": "resources/js/views/pages/Page404.vue",
     "isDynamicEntry": true,
@@ -150,7 +150,7 @@
     ]
   },
   "resources/js/views/pages/Page500.vue": {
-    "file": "assets/Page500-DqDopcxF.js",
+    "file": "assets/Page500-COYqnn1y.js",
     "name": "Page500",
     "src": "resources/js/views/pages/Page500.vue",
     "isDynamicEntry": true,
@@ -159,7 +159,7 @@
     ]
   },
   "resources/js/views/pages/Register.vue": {
-    "file": "assets/Register-fVE3IlWH.js",
+    "file": "assets/Register-9k6ut90k.js",
     "name": "Register",
     "src": "resources/js/views/pages/Register.vue",
     "isDynamicEntry": true,
@@ -168,93 +168,93 @@
     ]
   },
   "resources/js/views/settings/GeneralSetting.vue": {
-    "file": "assets/GeneralSetting-BqHo0b_j.js",
+    "file": "assets/GeneralSetting-BrSAOwIq.js",
     "name": "GeneralSetting",
     "src": "resources/js/views/settings/GeneralSetting.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_formMixin-CuKfjQ8e.js",
+      "_formMixin-BR49Sdmj.js",
       "resources/js/app.js"
     ]
   },
   "resources/js/views/settings/author/Form.vue": {
-    "file": "assets/Form-M9lB0YX3.js",
+    "file": "assets/Form-Bf525_ku.js",
     "name": "Form",
     "src": "resources/js/views/settings/author/Form.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_formMixin-CuKfjQ8e.js",
+      "_formMixin-BR49Sdmj.js",
       "resources/js/app.js"
     ]
   },
   "resources/js/views/settings/author/List.vue": {
-    "file": "assets/List--imFlW6t.js",
+    "file": "assets/List-CFggthaH.js",
     "name": "List",
     "src": "resources/js/views/settings/author/List.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_listMixin-D3VGw9L4.js"
+      "_listMixin-D4_bIHHF.js"
     ]
   },
   "resources/js/views/settings/category/Form.vue": {
-    "file": "assets/Form-GgTxBw_g.js",
+    "file": "assets/Form-DEbjM-TR.js",
     "name": "Form",
     "src": "resources/js/views/settings/category/Form.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_formMixin-CuKfjQ8e.js",
+      "_formMixin-BR49Sdmj.js",
       "resources/js/app.js"
     ]
   },
   "resources/js/views/settings/category/List.vue": {
-    "file": "assets/List-CeurUaRQ.js",
+    "file": "assets/List-vWRcgRsj.js",
     "name": "List",
     "src": "resources/js/views/settings/category/List.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_listMixin-D3VGw9L4.js"
+      "_listMixin-D4_bIHHF.js"
     ]
   },
   "resources/js/views/settings/lesson/Form.vue": {
-    "file": "assets/Form-CPa9uI61.js",
+    "file": "assets/Form-C3incGXL.js",
     "name": "Form",
     "src": "resources/js/views/settings/lesson/Form.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_formMixin-CuKfjQ8e.js",
+      "_formMixin-BR49Sdmj.js",
       "resources/js/app.js"
     ]
   },
   "resources/js/views/settings/lesson/List.vue": {
-    "file": "assets/List-sKdUSaS_.js",
+    "file": "assets/List-qPrM7Rcl.js",
     "name": "List",
     "src": "resources/js/views/settings/lesson/List.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_listMixin-D3VGw9L4.js"
+      "_listMixin-D4_bIHHF.js"
     ]
   },
   "resources/js/views/settings/series/Form.vue": {
-    "file": "assets/Form-DAqqJPwt.js",
+    "file": "assets/Form-gZL0Iojr.js",
     "name": "Form",
     "src": "resources/js/views/settings/series/Form.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_formMixin-CuKfjQ8e.js",
+      "_formMixin-BR49Sdmj.js",
       "resources/js/app.js"
     ]
   },
   "resources/js/views/settings/series/List.vue": {
-    "file": "assets/List-BpVHpXDP.js",
+    "file": "assets/List-B4AqO7pW.js",
     "name": "List",
     "src": "resources/js/views/settings/series/List.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_listMixin-D3VGw9L4.js"
+      "_listMixin-D4_bIHHF.js"
     ]
   }
 }
