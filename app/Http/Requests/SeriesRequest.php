@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
 class SeriesRequest extends FormRequest
@@ -24,7 +25,7 @@ class SeriesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required'],
+            'name' => ['required', Rule::unique('series')->ignore($this->series)],
             'author_id' => ['required'],
             'category_id' => ['required'],
             'banner_image'   => ['nullable'],
@@ -41,6 +42,7 @@ class SeriesRequest extends FormRequest
             'author_id'            => $this->input('author_id'),
             'category_id'            => $this->input('category_id'),
             'name'         => $this->input('name'),
+            'slug'         => slug_generator($this->input('name')),
             'banner_image'         => $this->input('banner_image'),
             'status'             => $this->input('status', 1)
         ];

@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class CategoryRequest extends FormRequest
 {
@@ -21,7 +23,7 @@ class CategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'        => 'required|string|max:255',
+            'name'       => 'required|string|'.Rule::unique('categories')->ignore($this->category),
             'status'      => 'nullable|in:1,2', // 1=Active, 2=Inactive
         ];
     }
@@ -30,6 +32,7 @@ class CategoryRequest extends FormRequest
     {
         return [
             'name'        => $this->input('name'),
+            'slug'        => slug_generator($this->input('name')),
             'status'      => $this->input('status', 1),
         ];
     }

@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class AuthorRequest extends FormRequest
 {
@@ -21,7 +23,7 @@ class AuthorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
+            'name'       => 'required|string|'.Rule::unique('authors')->ignore($this->author),
             'status'      => 'nullable|in:1,2'
         ];
     }
@@ -30,6 +32,7 @@ class AuthorRequest extends FormRequest
     {
         return [
             'name'        => $this->input('name'),
+            'slug'        => slug_generator($this->input('name')),
             'status'      => $this->input('status', 1),
         ];
     }

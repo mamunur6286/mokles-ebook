@@ -9,6 +9,7 @@ class Lesson extends Model
         protected $fillable = [
             'book_id',
             'name',
+            'slug',
             'description',
             'sort_order',
             'status',

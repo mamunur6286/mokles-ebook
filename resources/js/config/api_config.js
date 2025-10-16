@@ -1,5 +1,5 @@
 import axios from 'axios'
-const prod = true;
+const prod = false;
 export const baseUrl = prod ? 'http://69.62.72.119:8075/api/v1/' : 'http://localhost:8000/api/v1/'
 
 export default {

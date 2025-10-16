@@ -47,3 +47,24 @@ if (!function_exists('fileUpload'))
         return $filePath;
     }
 }
+if (!function_exists('slug_generator')) {
+    function slug_generator($string)
+    {
+        // Trim
+        $slug = trim($string);
+
+        // Replace spaces with dash
+        $slug = preg_replace('/\s+/u', '-', $slug);
+
+        // Keep Bangla letters, English letters, numbers, marks, and dashes only
+        $slug = preg_replace('/[^\p{L}\p{N}\p{M}\-]+/u', '', $slug);
+
+        // Remove duplicate dashes
+        $slug = preg_replace('/-+/', '-', $slug);
+
+        // Trim dashes
+        $slug = trim($slug, '-');
+
+        return $slug;
+    }
+}

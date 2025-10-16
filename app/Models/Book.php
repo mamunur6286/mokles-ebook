@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Hash;
 
 class Book extends Model
 {
@@ -13,6 +15,7 @@ class Book extends Model
         'series_id',
         'book_image',
         'name',
+        'slug',
         'meta_data',
         'description',
         'status',
@@ -33,5 +36,9 @@ class Book extends Model
     public function series(): BelongsTo
     {
         return $this->belongsTo( Series::class, 'series_id');
+    }
+    public function lessons(): HasMany
+    {
+        return $this->hasMany( Lesson::class, 'book_id')->orderBy('sort_order', 'asc');
     }
 }

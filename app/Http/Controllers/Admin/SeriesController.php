@@ -22,8 +22,16 @@ class SeriesController extends Controller
         try {
 
             $name = $request->get('name');
+            $category = $request->get('category_id');
+            $author = $request->get('author_id');
 
             $models = Series::query()->with(['author', 'category'])
+                ->when($category, function (Builder $query) use ($category) {
+                    return $query->where('category_id', $category);
+                })
+                ->when($author, function (Builder $query) use ($author) {
+                    return $query->where('author_id', $author);
+                })
                 ->when($name, function (Builder $query) use ($name) {
                     return $query->where('name', 'LIKE', '%'.$name.'%');
                 })

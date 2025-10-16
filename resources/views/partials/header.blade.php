@@ -3,7 +3,11 @@
       <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
 
         <!-- Logo -->
-        <div class="text-lg font-bold mb-2 md:mb-0">Bangla Library</div>
+        <div class="text-lg font-bold mb-2 md:mb-0">
+          <a href="{{ url('/') }}" class="hover:pointer">
+            Bangla Library  
+          </a>
+        </div>
 
         <!-- Menu -->
         <nav class="flex flex-wrap justify-center md:justify-start space-x-4 mb-2 md:mb-0 text-sm">

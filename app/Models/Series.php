@@ -10,6 +10,7 @@ class Series extends Model
         'author_id',
         'category_id',
         'name',
+        'slug',
         'banner_image',
         'status'
     ];
@@ -21,5 +22,9 @@ class Series extends Model
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
+    }
+    public function books()
+    {
+        return $this->hasMany(Book::class, 'series_id');
     }
 }

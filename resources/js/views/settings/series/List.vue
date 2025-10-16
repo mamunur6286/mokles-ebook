@@ -13,6 +13,12 @@
                         <b-form>
                             <div class="row">
                                 <div class="col-md-3">
+                                    <Select v-model="search.author_id" :input="{ name: 'author_id', label: 'Author', options: authorList, required: true, errors }" />
+                                </div>
+                                <div class="col-md-3">
+                                    <Select v-model="search.category_id" :input="{ name: 'category_id', label: 'Category', options: categoryList, required: true, errors }" />
+                                </div>
+                                <div class="col-md-3">
                                     <b-form-group
                                         label-cols-md="12"
                                     >
@@ -21,12 +27,10 @@
                                     </template>
                                     <b-form-input
                                         size="sm"
-                                        id="email"
-                                        v-model="search.email"
+                                        id="name"
+                                        v-model="search.name"
                                         ></b-form-input>
                                     </b-form-group>
-                                </div>
-                                <div class="col-md-12 text-right">
                                 </div>
                             </div>
                         </b-form>
@@ -88,17 +92,25 @@ export default {
         baseUrl: baseUrl,
         search: {
             name: '',
-            salon_id: null
+            category_id: '',
+            author_id: '',
         },
         pagination: {
             perPage: 10,
             currentPage: 1,
             total: 0
         },
-        editId: ''
+        editId: '',
+        errors: []
       }
     },
     computed: {
+        authorList () {
+            return this.$store.state.commonObj.authorList
+        },
+        categoryList () {
+            return this.$store.state.commonObj.categoryList
+        },
         fields () {
             const labels = [
                 { label: 'Sl No', class: 'text-center' },

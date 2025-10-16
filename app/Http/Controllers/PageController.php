@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Author;
 use App\Models\Category;
+use App\Models\Series;
 use App\Models\User;
 use Exception;
 use Illuminate\Container\Attributes\Auth;
@@ -73,5 +74,14 @@ class PageController extends Controller
             return redirect()->back()->with('error', app()->isProduction() ? 'Internal Server Error' : $e->getMessage());
         }
     }
+    public function series(Request $request)
+    {
+        try {
+            $series = Series::query()->withCount('books')->get();
+            return view('series', compact('series'));
 
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', app()->isProduction() ? 'Internal Server Error' : $e->getMessage());
+        }
+    }
 }
